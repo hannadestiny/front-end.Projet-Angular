@@ -12,7 +12,8 @@ export class AssignmentService {
   
 
   oponed = false;
-  url = 'http://localhost:8010/api/assignments';
+  //url = 'http://localhost:8010/api/assignments';
+  url ='https://back-end-projet-angular.onrender.com/api/assignments';
   constructor( private http: HttpClient ) { }
   
     
