@@ -1,0 +1,47 @@
+.custom-sidenav-container .mat-sidenav a {
+  display: block; 
+  
+  padding: 10px 20px; 
+  margin: 5px 0;
+  text-align: center; 
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.custom-sidenav-container .mat-sidenav a:hover {
+  background-color: #b476c6; 
+  color: #fafafb;
+}
+
+.mat-sidenav{
+  height: 100%;
+}
+button.mat-flat-button {
+  width: 100%; 
+  text-transform: uppercase; 
+  font-weight: bold;
+  color: #333; 
+  border: none;
+  border-radius: 4px; 
+}
+
+
+
+@media (max-width: 599px) {
+  .custom-sidenav-container .mat-sidenav {
+    width: 100%; 
+    position: absolute; 
+  }
+}
+
+.custom-sidenav-container .mat-sidenav {
+  overflow-y: auto;
+}
+
+
+.custom-sidenav-container .mat-sidenav a:focus {
+  outline: 2px solid #b476c6;
+}
+
+ 
+
+  

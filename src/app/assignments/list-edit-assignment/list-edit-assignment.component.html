@@ -1,0 +1,93 @@
+
+
+<div>
+  <h3>Liste des devoirs a noter :</h3>
+  
+   
+  <mat-form-field>
+    <mat-label>Nom du devoir</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Nom du devoir" #input>
+  </mat-form-field>
+  
+  
+  <mat-form-field>
+    <mat-label>Status</mat-label>
+    <mat-select mat-select  (selectionChange)="applyFilter1($event.value)"
+    placeholder="status"
+    [(ngModel)]="status"
+    name="status">
+    <mat-option value="tous">Tous</mat-option>
+    <mat-option value="true">Rendu</mat-option>
+    <mat-option value="false">Non Rendu</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+  
+    <mat-label>Matiere</mat-label>
+  
+    <mat-select mat-select  (selectionChange)="applyFilter2($event.value)"
+    placeholder="Matiere"
+    [(ngModel)]="mat"
+    name="mat">
+      <mat-option value="tous">Tous</mat-option>
+      <mat-option value="Angular">Angular</mat-option>
+      <mat-option value="Management" >Management</mat-option>
+      <mat-option value="Java">Java</mat-option>
+      <mat-option value="Statistique">Statistique</mat-option>
+      <mat-option value="OIB">OIB</mat-option>
+      <mat-option value="Communication">Communication</mat-option>
+      <mat-option value="Base de données">Base de données</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="id"> No. </th>
+      <td mat-cell *matCellDef="let assignment"> {{assignment.id}} </td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Nom du Devoir </th>
+      <td mat-cell *matCellDef="let assignment"> {{assignment.nomDevoir}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="matiere">
+      <th mat-header-cell *matHeaderCellDef> Matiere </th>
+      <td mat-cell *matCellDef="let assignment"> {{assignment.matiere}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="nomProf">
+      <th mat-header-cell *matHeaderCellDef> Nom du Prof </th>
+      <td mat-cell *matCellDef="let assignment"> {{assignment.nomProf}} </td>
+    </ng-container>
+  
+  
+    <ng-container matColumnDef="dateDeRendu">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="dateDeRendu"> Date de Rendu </th>
+      <td mat-cell *matCellDef="let assignment"> {{assignment.dateDeRendu | date}} </td>
+    </ng-container>
+
+  <ng-container matColumnDef="nomAuteur">
+    <th mat-header-cell *matHeaderCellDef> Nom de l'auteur </th>
+    <td mat-cell *matCellDef="let assignment"> {{assignment.auteur}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="rendu">
+    <th mat-header-cell *matHeaderCellDef> Status </th>
+    <td mat-cell *matCellDef="let assignment"> 
+      <ng-container *ngIf="assignment.rendu;else nonSoumis" >
+        Rendu</ng-container>
+      <ng-template #nonSoumis>Non Rendu</ng-template>
+       </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
+  <tr mat-row *matRowDef="let assignment; columns: displayedColumns;" (click)="openConfirmDialog(assignment)"></tr>
+</table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+  showFirstLastButtons
+  aria-label="Select page of periodic assignments">
+  </mat-paginator>
+</div>
+

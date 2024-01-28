@@ -1,0 +1,19 @@
+<h2 mat-dialog-title class="dialog-title">Noter Assignment</h2>
+<mat-dialog-content class="dialog-content">
+  Veuillez rentrer la note que vous voulez donner a l'assignment "{{data.assignmentName}}" 
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <div class="input-container">
+      <input ng-model="note"
+             type="number"
+             min="0"
+             max="20"
+             name="note"
+             matInput
+             placeholder="Note"
+             [(ngModel)]="data.note" />
+    </div>
+    <button mat-button [mat-dialog-close]="data" class="delete-button button-common" *ngIf="data.note >= 0 && data.note <=20 && data.note">Noter</button>
+    <button mat-button mat-dialog-close class="cancel-button button-common">Annuler</button>
+  </mat-dialog-actions>
+  

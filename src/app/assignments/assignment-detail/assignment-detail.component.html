@@ -1,0 +1,159 @@
+
+
+<div class="container">
+    <mat-card *ngIf="!assignmentTransmis.rendu">
+        <div class="text-container">
+        <mat-card-title  *ngIf="!assignmentTransmis.rendu">{{assignmentTransmis.nomDevoir}} est à rendre pour le {{assignmentTransmis.dateDeRendu |date}}</mat-card-title>  
+        </div>
+            <mat-card-content *ngIf="!assignmentTransmis.rendu" >
+                <div class="text-container">
+                <p> Date de rendu : {{assignmentTransmis.dateDeRendu | date}}</p>
+                <p *ngIf="remarque()"> Commentaire : {{assignmentTransmis.remarque}}</p>
+                </div>
+                <br>
+            <br>
+            <div *ngIf="donati()">
+                <img class="left-buttons" cImg rounded src="assets/image/donati-image.jpg" height="250"/>
+                <br>
+                <p>  Matiere : {{assignmentTransmis.matiere}}</p>
+                <img  cImg rounded src="assets/image/stat.jpg" height="150"/>
+            </div>
+            <div *ngIf="lahire()">
+                <img class="left-buttons" cImg rounded src="assets/image/lahire-image.jpg" height="250"/>
+                <br>
+                <p>  Matiere : {{assignmentTransmis.matiere}}</p>
+                <img  cImg rounded src="assets/image/java.jpg" height="150"/>
+            </div>
+
+            <div *ngIf="buffa()">
+                <img class="left-buttons" cImg rounded src="assets/image/buffa-image.jpg" height="250"/>
+                <br>
+                <p>  Matiere : {{assignmentTransmis.matiere}}</p>
+                <img  cImg rounded src="assets/image/angular.jpg" height="150"/>
+            </div>
+           
+           <div *ngIf="tounsi()">
+                <img class="left-buttons" cImg rounded src="assets/image/tounsi-image.jpg" height="250"/>
+                <br>
+                <p>  Matiere : {{assignmentTransmis.matiere}}</p>
+                <img  cImg rounded src="assets/image/si.jpg" height="150"/>
+            </div>
+
+            <div *ngIf="mirbel()">
+                <img class="left-buttons" cImg rounded src="assets/image/mirbel-image.jpg" height="250"/>
+                <br>
+                <p>  Matiere : {{assignmentTransmis.matiere}}</p>
+                <img  cImg rounded src="assets/image/oib.jpg" height="150"/>
+            </div>
+           
+            <div *ngIf="arnault()">
+                <img class="left-buttons" cImg rounded src="assets/image/arnault-image.jpg" height="250"/>
+                <br>
+                <p>  Matiere : {{assignmentTransmis.matiere}}</p>
+                <img  cImg rounded src="assets/image/comm.jpg" height="150"/>
+            </div>
+
+            <div *ngIf="Galli()">
+                <img class="left-buttons" cImg rounded src="assets/image/Galli-image.jpg" height="250"/>
+                <br>
+                <p>  Matiere : {{assignmentTransmis.matiere}}</p>
+                <img  cImg rounded src="assets/image/sgbd.jpg" height="150"/>    
+            </div>
+           
+            
+                
+            </mat-card-content>
+            
+            <div class="button-group">
+                <br>
+                <div class="left-buttons">
+                    <button mat-flat-button color="primary" [disabled]="!isLogged()" (click)="onedit()">Modifier</button>
+                    <button mat-flat-button color="primary" [disabled]="!isAdmin()" (click)="openConfirmDialog()">Supprimer</button>
+                </div>
+                <button mat-flat-button color="primary" (click)="retour()">Retour</button>
+            </div>
+    </mat-card>
+
+   
+
+</div>
+
+<div class="container">
+    <mat-card *ngIf="assignmentTransmis.rendu">
+        <div class="text-container">
+        <mat-card-title>{{assignmentTransmis.nomDevoir}} a été rendu </mat-card-title> 
+        </div>
+        <mat-card-content>
+            <div class="text-container">
+                <p> Date de rendu : {{assignmentTransmis.dateDeRendu | date}}</p>
+                <p *ngIf="rendu()"> Note : {{assignmentTransmis.note}}/20</p>
+                <p *ngIf="remarque()"> Commentaire : {{assignmentTransmis.remarque}}</p>
+            </div>
+            
+            <br>
+            <br>
+            <div *ngIf="donati()">
+                <img class="left-buttons" cImg rounded src="assets/image/donati-image.jpg" height="250"/>
+                <br>
+                <p>  Matiere : {{assignmentTransmis.matiere}}</p>
+                <img  cImg rounded src="assets/image/stat.jpg" height="150"/>
+            </div>
+            <div *ngIf="lahire()">
+                <img class="left-buttons" cImg rounded src="assets/image/lahire-image.jpg" height="250"/>
+                <br>
+                <p>  Matiere : {{assignmentTransmis.matiere}}</p>
+                <img  cImg rounded src="assets/image/java.jpg" height="150"/>
+            </div>
+
+            <div *ngIf="buffa()">
+                <img class="left-buttons" cImg rounded src="assets/image/buffa-image.jpg" height="250"/>
+                <br>
+                <p>  Matiere : {{assignmentTransmis.matiere}}</p>
+                <img  cImg rounded src="assets/image/angular.jpg" height="150"/>
+            </div>
+           
+           <div *ngIf="tounsi()">
+                <img class="left-buttons" cImg rounded src="assets/image/tounsi-image.jpg" height="250"/>
+                <br>
+                <p>  Matiere : {{assignmentTransmis.matiere}}</p>
+                <img  cImg rounded src="assets/image/si.jpg" height="150"/>
+            </div>
+
+            <div *ngIf="mirbel()">
+                <img class="left-buttons" cImg rounded src="assets/image/mirbel-image.jpg" height="250"/>
+                <br>
+                <p>  Matiere : {{assignmentTransmis.matiere}}</p>
+                <img  cImg rounded src="assets/image/oib.jpg" height="150"/>
+            </div>
+           
+            <div *ngIf="arnault()">
+                <img class="left-buttons" cImg rounded src="assets/image/arnault-image.jpg" height="250"/>
+                <br>
+                <p>  Matiere : {{assignmentTransmis.matiere}}</p>
+                <img  cImg rounded src="assets/image/comm.jpg" height="150"/>
+            </div>
+
+            <div *ngIf="Galli()">
+                <img class="left-buttons" cImg rounded src="assets/image/Galli-image.jpg" height="250"/>
+                <br>
+                <p>  Matiere : {{assignmentTransmis.matiere}}</p>
+                <img  cImg rounded src="assets/image/sgbd.jpg" height="150"/>    
+            </div>
+           
+            
+        </mat-card-content>
+        <div class="button-group">
+            <br>
+            <div class="left-buttons">
+                <button mat-flat-button color="primary" [disabled]="!isLogged()" (click)="onedit()">Modifier</button>
+                <button mat-flat-button color="primary" [disabled]="!isAdmin()" (click)="openConfirmDialog()">Supprimer</button>
+            </div>
+            <button mat-flat-button color="primary" (click)="retour()">Retour</button>
+        </div>
+    </mat-card>
+</div>
+
+
+
+
+

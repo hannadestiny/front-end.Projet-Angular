@@ -1,0 +1,73 @@
+
+.container {
+    display: grid;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px; 
+    width: 90%; 
+}
+
+
+
+mat-card {
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+mat-card-title {
+    font-size: 1.5em;
+    color: #5C007A;
+   
+}
+
+.left-buttons {
+    float: right;
+}
+
+mat-card-content {
+    font-size: 1em;
+    color: #666;
+}
+
+img {
+    border-radius: 8px;
+    margin-top: 10px;
+   
+}
+
+/* Class for the text container */
+.text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers content horizontally */
+    text-align: center; /* Centers text lines */
+    width: 100%; /* Ensures the container takes the full width */
+    margin-bottom: 20px; /* Space below the text container */
+}
+
+
+
+/* Revised styles for smaller buttons */
+button[mat-flat-button] {
+    background-color: #b476c6;
+    color: white;
+    padding: 5px 10px; /* Reduced padding */
+    font-size: 0.8em; /* Smaller font size */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+button[mat-flat-button]:hover {
+    background-color: #ba1fe6;
+}
+
+button[mat-flat-button]:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

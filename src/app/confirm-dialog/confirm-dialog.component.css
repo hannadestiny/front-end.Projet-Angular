@@ -1,0 +1,41 @@
+.dialog-title {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center; /* Center align the title text */
+  }
+  
+  .dialog-content {
+    color: #555; /* Slightly lighter color for content */
+    text-align: center; /* Center align the content text */
+  }
+  
+  .dialog-actions {
+    display: flex;
+    justify-content: center; /* Align buttons to the center */
+    padding: 10px 0; /* Add some padding for spacing */
+  }
+  
+  .delete-button {
+    background-color: #b476c6; /* Custom color for delete action */
+    color: white;
+    border: none;
+    transition: background-color 0.3s;
+    margin-right: 10px; /* Add space between buttons */
+  }
+  
+  .delete-button:hover {
+    background-color: #ba1fe6; /* Darker color on hover */
+  }
+  
+  .cancel-button {
+    background-color: #f0f0f0; /* Light grey for cancel action */
+    color: #333;
+    border: 1px solid #ccc;
+    transition: background-color 0.3s;
+  }
+  
+  .cancel-button:hover {
+    background-color: #e6e6e6; /* Slightly darker grey on hover */
+  }
+  

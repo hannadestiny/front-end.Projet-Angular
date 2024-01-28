@@ -1,0 +1,41 @@
+/* Your CSS */
+.assignment-generator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.assignment-generator input {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.generate-btn, .back-btn {
+    background-color: #b476c6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.generate-btn:hover, .back-btn:hover {
+    background-color: #8b15b3;
+    color: white;
+}
+
+h1 {
+    color: #8b15b3;
+    text-align: center;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,78 @@
+#container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: #ffffff; 
+    border-left: 5px solid #8b15b3;
+  }
+  
+  #container h1 {
+    text-align: center;
+    color: #8b15b3;
+    margin-bottom: 20px;
+  }
+  
+  .exemple {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f9fa; 
+  }
+  
+  
+  
+  .example-container {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+    background-color: #f8f9fa; 
+  }
+  
+  input.mat-input-element {
+    padding: 10px;
+    border: 1px solid #ced4da; 
+    border-radius: 5px;
+  }
+  
+  button.exemple-focus {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #b476c6;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button.exemple-focus:hover {
+    background-color: #8b15b3;
+  }
+  
+  button.exemple-focus:disabled {
+    background-color: #cccccc;
+    cursor: default;
+  }
+  
+  .mat-icon-button {
+    cursor: pointer;
+    color: #007BFF; 
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    #container {
+      width: 90%;
+      margin: 20px auto;
+    }
+  }
+  
+  

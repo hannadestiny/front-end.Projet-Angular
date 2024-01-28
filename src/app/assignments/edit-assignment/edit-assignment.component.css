@@ -1,0 +1,82 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ECEFF1; /* Light blue-grey background for a softer look */
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+h1 {
+    color: #8b15b3; /* Slightly darker purple for better contrast */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Stepper Styles */
+mat-stepper {
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1); /* Softer shadow for a more refined look */
+    margin-bottom: 20px;
+}
+
+/* Form Field Styles */
+mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Input, Select and Datepicker Styles */
+
+
+input.mat-input-element {
+    padding: 8px; 
+    border: 1px solid #ced4da; 
+    border-radius: 5px;
+    font-size: 14px; 
+    height: auto; 
+}
+
+button[mat-button] {
+    padding: 8px 18px;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    margin-bottom: 10px; 
+}
+
+button[mat-flat-button] {
+    background-color: #b476c6; /* Soft purple */
+    color: white;
+    margin-right: 20px; /* Add space to the right of the button */
+}
+
+button[mat-flat-button]:hover {
+    background-color: #8b15b3; /* Darker purple on hover */
+}
+
+button.exemple-focus:disabled {
+    background-color: #cccccc;
+    cursor: default;
+  }
+
+button[mat-button]:not(:last-child) {
+    margin-right: 20px; /* Add space between buttons */
+}
+
+button[mat-button] {
+    background-color: #b476c6; /* Soft purple to match heading */
+    color: white;
+}
+
+button[mat-button]:hover {
+    background-color: #8b15b3; /* Slightly darker on hover */
+}
+
+/* Ensuring buttons don't stick to each other on smaller screens */
+@media (max-width: 768px) {
+    button[mat-button]:not(:last-child) {
+        margin-right: 10px; /* Less space between buttons on smaller screens */
+    }
+}

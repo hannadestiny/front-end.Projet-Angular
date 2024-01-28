@@ -1,0 +1,22 @@
+<mat-sidenav-container  class="custom-sidenav-container">
+  <mat-sidenav *ngIf="isOponed()" [opened]="oponed" mode="side" #sidenav >
+        <a button mat-flat-button  [routerLink]="['/list']" (click)="fal()">Liste des devoirs</a>
+    
+        <a button mat-flat-button [routerLink]="['/add']" (click)="fal()"  [disabled]="!islogged()">Ajouter un devoir</a>
+     
+        <a button mat-flat-button [routerLink]="['/listedit']" (click)="fal()"  [disabled]="!isAdmin() || !islogged()">Noter/Rendre un devoir</a>
+          
+        <a button mat-flat-button [routerLink]="['/listdelete']"  (click)="fal()" [disabled]="!isAdmin() || !islogged()" >Suppression d'un devoir</a>
+        
+        <a button mat-flat-button [routerLink]="['/generate']"  (click)="fal()" [disabled]="!isAdmin() || !islogged()">Générer des assignments</a>
+      </mat-sidenav>
+  
+  
+    <mat-sidenav-content>
+  
+        <router-outlet></router-outlet>
+        
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
+  

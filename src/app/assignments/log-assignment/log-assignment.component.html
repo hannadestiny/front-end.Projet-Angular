@@ -1,0 +1,19 @@
+<div id="container" [formGroup]="form">
+  <h1>{{ titre }}</h1>
+
+  <mat-form-field class="example-container">
+    <mat-label>Entrer votre identifiant</mat-label>
+    <input matInput type="text" formControlName="Username" [(ngModel)]="username" placeholder="Username" >
+  </mat-form-field>
+
+  <mat-form-field class="example-container">
+    <mat-label>Entrer votre mot de passe</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password"  [(ngModel)]="password" placeholder="Mot de Passe">
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <button class="exemple-focus" (click)="login()" [disabled]="!form.valid">Login</button>
+  
+</div>

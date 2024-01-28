@@ -1,0 +1,49 @@
+
+
+<mat-toolbar color="warm">
+  <mat-toolbar-row>
+    <span class="toolbar-title">Application de gestion de devoirs </span>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    
+     <button mat-button  (click)="oponed()" class="menu-button">
+            <mat-icon  >
+              menu
+            </mat-icon> 
+            Menu
+          </button>
+    <main class ="container">
+      <div class="homeBtn">
+        <nav>
+        <a routerLink="">
+          <button mat-button (click)="oponed1()">
+            <mat-icon >
+              home
+            </mat-icon> 
+            Home
+          </button></a></nav>
+      </div>
+    </main>
+
+    <span class="example-spacer"></span>
+    <main >
+      <div>
+        <nav>
+        <a routerLink="/log">
+          <button mat-button *ngIf="!isLogged()" (click)="fal()">
+            <mat-icon >
+              person
+            </mat-icon> 
+            Login
+          </button></a></nav>
+      </div>
+    </main>
+
+    <button mat-button (click)="logout()" *ngIf="isLogged()" >
+      <mat-icon >
+        person
+      </mat-icon> 
+      Logout
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>

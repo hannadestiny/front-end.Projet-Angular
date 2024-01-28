@@ -1,0 +1,158 @@
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulaire de moddification d'un devoir</title>
+ 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+  <h1>{{ titre }}</h1>
+
+  <button mat-flat-button color="primary" (click)="retour()">
+      Annuler
+  </button>
+  <br><br>
+
+  <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+        <ng-template matStepLabel>Nom du devoir</ng-template>
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput
+           placeholder="Nom du devoir"
+           [(ngModel)]="assignment.nomDevoir"
+            [formControl]="assignmentForm.get('nomDevoir')"
+           name="nomDevoir"
+           required
+          />
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Suivant</button>
+        </div>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" label="Matière">
+
+        <mat-form-field>
+          <mat-select placeholder="Matière"
+          [(ngModel)]="assignment.matiere"
+          [formControl]="assignmentForm.get('matiere')"
+          name="matiere"
+          required>
+            <mat-option value="Angular">Angular</mat-option>
+            <mat-option value="Management" >Management</mat-option>
+            <mat-option value="Java">Java</mat-option>
+            <mat-option value="Statistique">Statistique</mat-option>
+            <mat-option value="OIB">OIB</mat-option>
+            <mat-option value="Communication">Communication</mat-option>
+            <mat-option value="Base de données">Base de données</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Retour</button>
+          <button mat-button matStepperNext>Suivant</button>
+        </div>
+    
+    </mat-step>
+
+    <mat-step [stepControl]="thirdFormGroup" label="Date Rendu">
+      <mat-form-field>
+        <mat-label>Choisir une date</mat-label>
+        <input matInput [matDatepicker]="picker"
+              [(ngModel)]="assignment.dateDeRendu"
+              [formControl]="assignmentForm.get('dateDeRendu')"
+              name="date"
+              required
+        />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker>   </mat-datepicker>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Retour</button>
+        <button mat-button matStepperNext>Suivant</button>
+      </div>
+  
+    </mat-step>
+
+    <mat-step [stepControl]="fourthFormGroup" label="Nom de l'auteur">
+      <mat-form-field>
+        <mat-label> Nom de l'auteur : </mat-label>
+        <input matInput
+               placeholder="Nom de l'auteur"
+               [(ngModel)]="assignment.auteur"
+               [formControl]="assignmentForm.get('auteur')"
+               name="nomAuteur"
+                required
+        />
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Retour</button>
+        <button mat-button matStepperNext>Suivant</button>
+      </div>
+  
+  </mat-step>
+
+  <mat-step  *ngIf="isAdmin() && !assignment.rendu" [stepControl]="fifthFormGroup" label="Rendu" >
+      
+    <mat-checkbox  [(ngModel)]="isChecked" name="check">Check la box si l'assignment est rendu </mat-checkbox>
+
+    <div>
+      <button mat-button matStepperPrevious>Retour</button>
+      <button mat-button matStepperNext>Suivant</button>
+    </div>
+  </mat-step>
+  
+    <mat-step *ngIf="isAdmin() && (isChecked || assignment.rendu) " [stepControl]="sixthFormGroup" label="Status">
+      <ng-template matStepLabel>Note</ng-template>
+        <mat-form-field>
+          <mat-label> Note : </mat-label>
+          <input ng-model="note"
+                    type="number"
+                    min="0"
+                    max="20"
+                    name="note"
+                    matInput
+                    placeholder="Note"
+                    [(ngModel)]="assignment.note"
+                    [formControl]="assignmentForm.get('note')"
+                    name="note"
+          />
+        </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Retour</button>
+        <button mat-button matStepperNext>Suivant</button>
+      </div>
+    </mat-step>
+
+    <mat-step [stepControl]="seventhFormGroup" label="Remarques">
+          <ng-template matStepLabel>Remarques</ng-template>
+          <mat-form-field>
+            <mat-label>Remarques</mat-label>
+            <input matInput type="text"  placeholder="Remarques"
+            [formControl]="assignmentForm.get('remarque')"
+            [(ngModel)]="assignment.remarque"
+            
+            name="remarque"
+            />
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Retour</button>
+            <button mat-button matStepperNext>Suivant</button>
+          </div>
+        </mat-step>
+      <mat-step>
+
+      <ng-template matStepLabel>Modifier le devoir</ng-template>
+      <p>Modifier ce devoir.</p>
+      <div>
+        <button mat-button matStepperPrevious>Retour</button>
+        <button mat-button class="exemple-focus" [disabled]="!assignmentForm.dirty && !isChecked "
+         (click)="onSave($event)" >Modifier</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+
+</body>
